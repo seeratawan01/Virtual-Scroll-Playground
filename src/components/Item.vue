@@ -27,9 +27,8 @@ export default {
 
 <style scoped>
 .item-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .item-card {
   display: flex;
@@ -39,8 +38,7 @@ export default {
   margin: 1rem;
 }
 
-.item-card-img
-  img {
+.item-card-img img {
     width: 200px;
     height: 150px;
     object-fit: cover;

@@ -5,6 +5,7 @@
       <virtual-list
           class="list"
           wrap-class="list-wrapper"
+
           :data-key="'id'"
           :data-sources="items"
           :data-component="item"
