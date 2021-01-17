@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <h2>Virtual Scroll</h2>
+      <h2>Responsive Virtual Grid Item Scroll</h2>
       <virtual-list
         class="list"
         wrap-class="list-wrapper"
+        :page-mode="true"
         :data-key="'id'"
         :data-sources="items"
         :data-component="item"
@@ -90,18 +91,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 h2 {
   margin-bottom: 1rem;
 }
-.list {
+/* .list {
   border: 2px solid steelblue;
   border-radius: 3px;
   overflow-y: auto;
   height: calc(100vh - 200px);
-}
+} */
 
 .list-wrapper {
   /*display: grid;*/
