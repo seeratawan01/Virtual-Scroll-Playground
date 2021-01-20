@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-      <h2>Responsive Virtual Scroller</h2>
+      <h2>Vue Virtual Scroller (<a target="_blank" href="https://github.com/Akryum/vue-virtual-scroller">Github</a>)</h2>
 
       <DynamicScroller
           ref="scroller"
@@ -22,7 +22,7 @@
           <div class="item-row">
             <div v-for="(item, index) in item.chunk" class="item-card" :key="index">
               <div class="item-card-img">
-                <img src="https://via.placeholder.com/300/09f/fff.png" width="100%"/>
+                <img src="https://via.placeholder.com/3000/df4d4d/fff.png" width="100%"/>
               </div>
               <div> {{ item.text }}</div>
             </div>

@@ -13,10 +13,11 @@ Vue.config.productionTip = false
 
 import VirtualScrollList from "@/VirtualScrollList";
 import VirtualScroller from "@/VirtualScroller";
-
+import Home from "@/Home";
 const routes = [
-  { path: '/', component: VirtualScrollList },
-  { path: '/vue-virtual-scroller', component: VirtualScroller },
+  { path: '/', component: Home },
+  { path: '/Virtual-Scroll-Playground/', component: VirtualScrollList },
+  { path: '/Virtual-Scroll-Playground/vue-virtual-scroller', component: VirtualScroller },
 ]
 
 const router = new VueRouter({

@@ -2,8 +2,9 @@
   <div id="app">
     <nav id="navigator" class="navbar" >
       <ul class="navbar-nav">
-        <li> <router-link exact to="/">Virtual Scroll List</router-link></li>
-        <li> <router-link to="/vue-virtual-scroller">Virtual Scroll Scroller</router-link></li>
+        <li> <router-link exact to="/">Home</router-link></li>
+        <li> <router-link  to="/Virtual-Scroll-Playground/">Virtual Scroll List</router-link></li>
+        <li> <router-link to="/Virtual-Scroll-Playground/vue-virtual-scroller">Virtual Scroll Scroller</router-link></li>
       </ul>
     </nav>
 

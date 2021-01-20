@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-      <h2>Responsive Virtual Scroll List</h2>
+      <h2>Vue Virtual Scroll List (<a target="_blank" href="https://github.com/tangbc/vue-virtual-scroll-list">Github</a>)</h2>
       <virtual-list
           class="list"
           wrap-class="list-wrapper"
