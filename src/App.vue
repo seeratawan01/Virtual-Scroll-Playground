@@ -1,92 +1,22 @@
 <template>
   <div id="app">
-    <div class="wrapper">
-      <h2>Responsive Virtual Grid Item Scroll</h2>
-      <virtual-list
-        class="list"
-        wrap-class="list-wrapper"
-        :page-mode="true"
-        :data-key="'id'"
-        :data-sources="items"
-        :data-component="item"
-        :estimate-size="200"
-        v-on:totop="onScrollToTop"
-        v-on:tobottom="onScrollToBottom"
-      >
-        <div slot="footer" class="loading-spinner">Loading ...</div>
-      </virtual-list>
-    </div>
+    <nav id="navigator" class="navbar" >
+      <ul class="navbar-nav">
+        <li> <router-link exact to="/">Virtual Scroll List</router-link></li>
+        <li> <router-link to="/vue-virtual-scroller">Virtual Scroll Scroller</router-link></li>
+      </ul>
+    </nav>
+
+
+    <!-- route outlet -->
+    <!-- component matched by the route will render here -->
+    <router-view></router-view>
   </div>
 </template>
 
-<script>
-import Item from "./components/Item";
-import { getData, resetCounter } from "./data";
-
-export default {
-  name: "App",
-  data() {
-    return {
-      chunkSize: this.getChunkSize(document.body.clientWidth),
-      item: Item,
-      items: getData(40, this.getChunkSize(document.body.clientWidth)),
-    };
-  },
-  mounted() {
-    console.log(this.items);
-  },
-  created() {
-    window.addEventListener("resize", this.setVirtualItems);
-  },
-  destroyed() {
-    window.removeEventListener("resize", this.setVirtualItems);
-  },
-  methods: {
-    setVirtualItems() {
-      let width = document.body.clientWidth;
-      let newChunkSize = this.getChunkSize(width);
-      if (newChunkSize === this.chunkSize) {
-        return;
-      } else {
-        this.chunkSize = newChunkSize;
-        resetCounter();
-        this.items = getData(40, newChunkSize);
-      }
-    },
-    getChunkSize(width) {
-      if (width >= 1200) {
-        return 5;
-      } else if (width >= 992) {
-        return 4;
-      } else if (width >= 768) {
-        return 3;
-      } else if (width >= 576) {
-        return 2;
-      } else {
-        return 1;
-      }
-    },
-    onScrollToTop() {
-      console.log("at top");
-    },
-    onScrollToBottom() {
-      setTimeout(() => {
-        this.items = this.items.concat(getData(40, this.chunkSize));
-      }, 1000);
-    },
-  },
-};
-</script>
-
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -94,18 +24,24 @@ export default {
   margin-top: 2rem;
 }
 
-h2 {
-  margin-bottom: 1rem;
+nav {
+  padding: 8px;
 }
-/* .list {
-  border: 2px solid steelblue;
-  border-radius: 3px;
-  overflow-y: auto;
-  height: calc(100vh - 200px);
-} */
 
-.list-wrapper {
-  /*display: grid;*/
-  /*grid-template-columns: 1fr 1fr;*/
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+  padding: 0 6px;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
